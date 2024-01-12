@@ -13,10 +13,10 @@ spec:
     spec:
       containers:
         - name: complete-production-e2e-app
-          image: 21701jake/complete-production-e2e-pipeline:1.0.0-15
+          image: 21701jake/complete-production-e2e-pipeline:1.0.0-17
           resources:
             limits:
               memory: "256Mi"
               cpu: "500m"
           ports:
-            - containerPort: 8080
+            - containerPort: 9090
