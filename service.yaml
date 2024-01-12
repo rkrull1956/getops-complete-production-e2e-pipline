@@ -1,15 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
-  labels:
-    run: nginx
+  name: complete-production-e2e-svc
 spec:
   type: NodePort
-  ports:
-  - port: 8080
-    targetPort: 80
-    protocol: TCP
-    name: http
   selector:
-    run: nginx
+    app: complete-production-e2e-app
+  ports:
+    - port: 80
+      targetPort: 8080

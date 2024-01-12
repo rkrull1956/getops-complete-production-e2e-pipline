@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: complete-production-e2e-deployment
+  name: complete-prodcution-e2e-deployment
 spec:
-  replicas: 2
   selector:
     matchLabels:
-      app: complete-production-e2e-app
+      app: complete-prodcution-e2e-app
   template:
     metadata:
       labels:
-        run: complete-production-e2e-app
+        app: complete-prodcution-e2e-app
     spec:
       containers:
-      - name: complete-production-e2e-app
-        image: 21701jake/21701jake/complete-production-e2e-pipeline:1.0.0-15
-        resources:
-          limits: "256Mi"
-          cpu: "500m"
-        ports:
-          -containerPort:8080
+        - name: complete-prodcution-e2e-app
+          image: 21701jake/21701jake/complete-production-e2e-pipeline:1.0.0-15
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
