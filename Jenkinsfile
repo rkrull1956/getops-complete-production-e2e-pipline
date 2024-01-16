@@ -24,7 +24,7 @@ pipeline{
             steps {
                 sh """
                     cat deploymnet.yaml
-                    sed -i 's/${APP_NAME}.*/${APP_NAME):${IMAGE_TAG}/g' deployment.yaml
+                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
                     cat deployment.yaml
                 """
             }
@@ -32,20 +32,20 @@ pipeline{
         }
 
         stage("Push the updated Deployment file to GIT"){
-            stage {
+            steps {
                 sh """
                     git config --global user.name "rkrull1956"
                     git config --global user.email "roger.krull@yahoo.com"
                     git add deployment.yaml
                     git commit -m "Updated Deployment Manifest"
                 """
-                withCredential((gitUserPassword(crendentialID:"gitbh-pat":gitTooName: 'Default'))) {
+                withCredential([gitUserPassword(crendentialID:"github-pat", gitTooName: 'Default')]) {
                     sh "get push ..... main"
                 }
+                
             }
 
         }
 
-
-
+    }
 }
