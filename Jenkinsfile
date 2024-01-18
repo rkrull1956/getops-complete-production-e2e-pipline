@@ -3,7 +3,7 @@ pipeline{
         label "jenkins-agent"
     }
     environment{
-        APP_NAME = 'complete-production-e2e-pipline'
+        APP_NAME = 'complete-production-e2e-pipeline'
     }
 
     stages{
