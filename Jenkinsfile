@@ -39,7 +39,7 @@ pipeline{
                     git add deployment.yaml
                     git commit -m "Updated Deployment Manifest"
                 """
-                withCredential([gitUsernamePassword(credentialsId:"github", gitTooName: 'Default')]) {
+                withCredentials([gitUsernamePassword(credentialsId:"github", gitTooName: 'Default')]) {
                     sh "git push ..... main"
                 }
                 
